@@ -30,13 +30,14 @@ import static java.awt.RenderingHints.VALUE_RENDER_QUALITY;
 import static java.awt.RenderingHints.VALUE_STROKE_PURE;
 import static java.awt.RenderingHints.VALUE_TEXT_ANTIALIAS_OFF;
 import static java.io.File.separator;
+import static java.lang.System.currentTimeMillis;
 import static java.lang.System.out;
 import static org.apache.batik.util.XMLResourceDescriptor.getXMLParserClassName;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.RenderingHints; 
+import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.awt.image.FilteredImageSource;
@@ -108,15 +109,11 @@ public class GamaIconsProducer {
 	 *            the arguments
 	 */
 	public static void main(final String args[]) {
-		String input = args[0];
-		String output = args[1];
-		Path inputPath = Paths.get(input);
-		Path outputPath = Paths.get(output);
-		int number;
-		long start = System.currentTimeMillis();
-		number = produceIcons(inputPath, outputPath);
-		long stop = System.currentTimeMillis();
-		System.out.println("Produced " + number + " icons for GAMA in " + (stop - start) / 1000f + " seconds");
+		final String input = args.length <= 1 ? "svg" : args[0];
+		final String output = args.length == 0 ? "icons" : args.length == 1 ? args[0] : args[1];
+		long start = currentTimeMillis();
+		int n = produceIcons(Paths.get(input), Paths.get(output));
+		out.println("Produced " + n + " icons for GAMA in " + (currentTimeMillis() - start) / 1000f + " seconds");
 	}
 
 	/**
