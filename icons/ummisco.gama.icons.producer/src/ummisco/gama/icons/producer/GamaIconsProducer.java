@@ -44,8 +44,10 @@ import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageProducer;
 import java.awt.image.RGBImageFilter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -112,6 +114,7 @@ public class GamaIconsProducer {
 		final String input = args.length <= 1 ? "svg" : args[0];
 		final String output = args.length == 0 ? "icons" : args.length == 1 ? args[0] : args[1];
 		long start = currentTimeMillis();
+		generateBuiltInIcons(Paths.get(input));
 		int n = produceIcons(Paths.get(input), Paths.get(output));
 		out.println("Produced " + n + " icons for GAMA in " + (currentTimeMillis() - start) / 1000f + " seconds");
 	}
@@ -136,6 +139,28 @@ public class GamaIconsProducer {
 			renderer.setRenderingHints(renderHints);
 			return renderer;
 		}
+	}
+
+	/** The generate built in icons. */
+	public static void generateBuiltInIcons(final Path svgPath) {
+		Path newPath = svgPath.resolve("colors");
+		newPath.toFile().mkdirs();
+		CSSColors.NAME_TO_RGB.forEach((name, code) -> {
+			try {
+				try (PrintWriter pw = new PrintWriter(new FileOutputStream(
+						newPath.resolve("square.color." + code + ".svg").toFile().getAbsolutePath()))) {
+					pw.format(SVGTemplates.SQUARE, CSSColors.NAME_TO_FILL.get(name)).flush();
+				}
+				if (name.contains("simulation")) {
+					try (PrintWriter pw = new PrintWriter(new FileOutputStream(
+							newPath.resolve("circle.color." + code + ".svg").toFile().getAbsolutePath()))) {
+						pw.format(SVGTemplates.CIRCLE, CSSColors.NAME_TO_FILL.get(name)).flush();
+					}
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 
 	/**
