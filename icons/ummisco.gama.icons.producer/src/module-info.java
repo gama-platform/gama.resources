@@ -10,5 +10,5 @@ module ummisco.gama.icons.producer {
 	requires jdk.xml.dom;
 	requires java.desktop;
 	requires xml.apis.ext;
-	
+	requires java.base;	
 }
