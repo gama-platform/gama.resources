@@ -102,7 +102,7 @@ public class GamaIconsProducer {
 	static final DisabledFilter FILTER = new DisabledFilter();
 
 	/** The Constant SCALES. Change it to create new sizes */
-	static final String[] SCALES = { "1", "1.5", "2" };
+	static final String[] SCALES = { "1", "2" };
 
 	/**
 	 * The main method.
