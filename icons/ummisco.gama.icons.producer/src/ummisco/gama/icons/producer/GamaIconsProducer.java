@@ -1,9 +1,9 @@
 /*******************************************************************************************************
  *
  * GamaIconsProducer.java, in ummisco.gama.icons.producer, is part of the source code of the GAMA modeling and
- * simulation platform (v.1.9.1).
+ * simulation platform (v.2025-03).
  *
- * (c) 2007-2023 UMI 209 UMMISCO IRD/SU & Partners (IRIT, MIAT, TLU, CTU)
+ * (c) 2007-2025 UMI 209 UMMISCO IRD/SU & Partners (IRIT, MIAT, ESPACE-DEV, CTU)
  *
  * Visit https://github.com/gama-platform/gama for license information and contacts.
  *
@@ -51,6 +51,8 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 
@@ -114,7 +116,7 @@ public class GamaIconsProducer {
 		final String input = args.length <= 1 ? "svg" : args[0];
 		final String output = args.length == 0 ? "icons" : args.length == 1 ? args[0] : args[1];
 		long start = currentTimeMillis();
-		generateBuiltInIcons(Paths.get(input));
+		// generateBuiltInIcons(Paths.get(input));
 		int n = produceIcons(Paths.get(input), Paths.get(output));
 		out.println("Produced " + n + " icons for GAMA in " + (currentTimeMillis() - start) / 1000f + " seconds");
 	}
@@ -141,7 +143,7 @@ public class GamaIconsProducer {
 		}
 	}
 
-	/** The generate built in icons. */
+	/** The generate built in icons. !! Not generated anymore */
 	public static void generateBuiltInIcons(final Path svgPath) {
 		Path newPath = svgPath.resolve("colors");
 		newPath.toFile().mkdirs();
@@ -171,9 +173,14 @@ public class GamaIconsProducer {
 	public static int produceIcons(final Path inputPath, final Path outputPath) {
 		int[] counter = { 0 };
 		try {
+			final Set<Path> noDisabledDirs =
+					Files.walk(inputPath).filter(p -> Files.isDirectory(p) && Files.exists(p.resolve(".no_disabled")))
+							.collect(Collectors.toSet());
+
 			Files.walk(inputPath).filter(n -> n.toString().endsWith(".svg")).sorted().forEach(p -> {
 				String iconPathAndName = inputPath.relativize(p).toString().replace(".svg", "");
 				try {
+
 					SVGDocument svg = SVG_FACTORY.createSVGDocument(p.toUri().toURL().toString());
 					Dimension dim = correctSizeOf(iconPathAndName, svg);
 					TranscoderInput input = new TranscoderInput(svg);
@@ -190,11 +197,13 @@ public class GamaIconsProducer {
 							output.flush();
 						}
 						counter[0]++;
-						BufferedImage image = ImageIO.read(outputFile);
-						ImageProducer prod = new FilteredImageSource(image.getSource(), FILTER);
-						Image gray = Toolkit.getDefaultToolkit().createImage(prod);
-						ImageIO.write(toBufferedImage(gray), "png", outputDisabledFile);
-						counter[0]++;
+						if (!noDisabledDirs.contains(p.getParent())) {
+							BufferedImage image = ImageIO.read(outputFile);
+							ImageProducer prod = new FilteredImageSource(image.getSource(), FILTER);
+							Image gray = Toolkit.getDefaultToolkit().createImage(prod);
+							ImageIO.write(toBufferedImage(gray), "png", outputDisabledFile);
+							counter[0]++;
+						}
 					}
 				} catch (IOException | TranscoderException e) {
 					System.out
@@ -302,8 +311,6 @@ public class GamaIconsProducer {
 			nativeViewBoxX = splitted[0];
 			nativeViewBoxY = splitted[1];
 		}
-		int nativeWidth = -1;
-		int nativeHeight = -1;
 		if (("".equals(nativeWidthStr) || "".equals(nativeHeightStr)) && splitted.length == 4) {
 			nativeWidthStr = splitted[2];
 			nativeHeightStr = splitted[3];
@@ -317,8 +324,8 @@ public class GamaIconsProducer {
 		} else if (floatHeight != (int) floatHeight) {
 			out.println("==> WARNING: height of " + name + " is " + floatHeight + " (its width is " + floatWidth + ")");
 		}
-		nativeWidth = Math.round(floatWidth);
-		nativeHeight = Math.round(floatHeight);
+		int nativeWidth = Math.round(floatWidth);
+		int nativeHeight = Math.round(floatHeight);
 		node.setAttribute("width", String.valueOf(nativeWidth));
 		node.setAttribute("height", String.valueOf(nativeHeight));
 		node.setAttribute("viewBox", nativeViewBoxX + " " + nativeViewBoxY + " " + nativeWidth + " " + nativeHeight);

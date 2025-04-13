@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-502.09 -3853.122 25 25" width="25" height="25"><g fill="none"><circle cx="-489.59" cy="-3840.622" r="12" fill="#fff"/><circle cx="-489.59" cy="-3840.622" r="12" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/><path d="m-483.57-3845.606-1.213-1.212-4.807 4.807-4.807-4.807-1.213 1.212 4.807 4.807-4.807 4.807 1.213 1.213 4.807-4.807 4.807 4.807 1.212-1.213-4.807-4.807Z" fill="#9f4c4d"/><path d="m-483.57-3845.606-1.213-1.212-4.807 4.807-4.807-4.807-1.213 1.212 4.807 4.807-4.807 4.807 1.213 1.213 4.807-4.807 4.807 4.807 1.212-1.213-4.807-4.807Z" stroke="#9f4c4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.92"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-572.0785 -3695.231 24.999996 25" width="24.999996" height="25">
+  <defs/>
+  <g id="SOURCES" stroke-dasharray="none" fill="none" stroke="none" fill-opacity="1" stroke-opacity="1">
+    <title>SOURCES</title>
+    <g id="SOURCES_Calque_2">
+      <title>Calque 2</title>
+      <g id="Graphic_9183">
+        <circle cx="-559.5785" cy="-3682.731" r="12.000018268838" fill="white"/>
+        <circle cx="-559.5785" cy="-3682.731" r="12.000018268838" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+      </g>
+      <g id="Group_9201">
+        <title>close</title>
+        <g id="Graphic_9202">
+          <path d="M -559.5785 -3683.625 L -554.42437 -3688.767 C -554.176 -3689.0153 -553.79097 -3689.0153 -553.5426 -3688.767 C -553.2942 -3688.5185 -553.2942 -3688.1335 -553.5426 -3687.885 L -558.6967 -3682.731 L -553.5426 -3677.577 C -553.2942 -3677.3285 -553.2942 -3676.9434 -553.5426 -3676.695 C -553.79097 -3676.4467 -554.176 -3676.4467 -554.42437 -3676.695 L -559.5785 -3681.849 L -564.73264 -3676.72 C -564.981 -3676.4715 -565.36604 -3676.4715 -565.6144 -3676.72 C -565.8628 -3676.9683 -565.8628 -3677.3533 -565.6144 -3677.6017 L -560.4603 -3682.756 L -565.602 -3687.8975 C -565.8504 -3688.1335 -565.8504 -3688.531 -565.602 -3688.767 C -565.36604 -3689.0153 -564.9686 -3689.0153 -564.73264 -3688.767 L -559.5785 -3683.6128 Z" fill="#9f4c4d"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

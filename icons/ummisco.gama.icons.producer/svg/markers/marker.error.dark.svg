@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="-941.59 -3732.622 12 12"><g fill="none"><circle cx="-935.59" cy="-3726.622" r="6" fill="#fff"/><path fill="#ff0818" d="M-935.59-3732.622c-3.318 0-6 2.682-6 6s2.682 6 6 6 6-2.682 6-6-2.682-6-6-6Zm3 8.154-.846.846-2.154-2.154-2.154 2.154-.846-.846 2.154-2.154-2.154-2.154.846-.846 2.154 2.154 2.154-2.154.846.846-2.154 2.154 2.154 2.154Z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-287.3809 -4182.0165 10 10" width="10" height="10">
+  <defs/>
+  <g id="SOURCES" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+    <title>SOURCES</title>
+    <g id="SOURCES_Calque_2">
+      <title>Calque 2</title>
+      <g id="Group_7950">
+        <title>markers/marker.error.dark</title>
+        <g id="Graphic_7952">
+          <circle cx="-282.3809" cy="-4177.0165" r="3.38542207623078" fill="white"/>
+        </g>
+        <g id="Graphic_7951">
+          <path d="M -282.3809 -4182.0165 C -285.1459 -4182.0165 -287.3809 -4179.7815 -287.3809 -4177.0165 C -287.3809 -4174.2515 -285.1459 -4172.0165 -282.3809 -4172.0165 C -279.6159 -4172.0165 -277.3809 -4174.2515 -277.3809 -4177.0165 C -277.3809 -4179.7815 -279.6159 -4182.0165 -282.3809 -4182.0165 Z M -279.8809 -4175.2215 L -280.5859 -4174.5165 L -282.3809 -4176.3115 L -284.1759 -4174.5165 L -284.8809 -4175.2215 L -283.0859 -4177.0165 L -284.8809 -4178.8115 L -284.1759 -4179.5165 L -282.3809 -4177.7215 L -280.5859 -4179.5165 L -279.8809 -4178.8115 L -281.6759 -4177.0165 L -279.8809 -4175.2215 Z" fill="#ff0818"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

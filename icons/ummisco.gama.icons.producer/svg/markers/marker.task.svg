@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="-781.59 -3732.622 12 12"><g fill="none"><circle cx="-775.59" cy="-3726.622" r="6" fill="#a7967d"/><path fill="#fff" d="m-776.74-3725.233-1.494-1.494-.51.505 2.005 2.004 4.302-4.302-.506-.505Z"/><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width=".117" d="m-776.74-3725.233-1.494-1.494-.51.505 2.005 2.004 4.302-4.302-.506-.505Z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-127.38089 -4182.0165 10 10" width="10" height="10">
+  <defs/>
+  <g id="SOURCES" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+    <title>SOURCES</title>
+    <g id="SOURCES_Calque_2">
+      <title>Calque 2</title>
+      <g id="Group_8253">
+        <title>markers/marker.task</title>
+        <g id="Graphic_8255">
+          <circle cx="-122.38089" cy="-4177.0165" r="5.00000798950938" fill="#a7967d"/>
+        </g>
+        <g id="Graphic_8254">
+          <path d="M -123.52997 -4175.194 L -125.02503 -4177.155 L -125.53414 -4176.492 L -123.52997 -4173.863 L -119.22765 -4179.5066 L -119.73317 -4180.1697 Z" fill="white"/>
+          <path d="M -123.52997 -4175.194 L -125.02503 -4177.155 L -125.53414 -4176.492 L -123.52997 -4173.863 L -119.22765 -4179.5066 L -119.73317 -4180.1697 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width=".061740364"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
