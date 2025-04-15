@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-26.35771 -3263.623 24.75 24.75" width="24.75" height="24.75">
+  <defs/>
+  <g id="SOURCES" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+    <title>SOURCES</title>
+    <g id="SOURCES_New">
+      <title>New</title>
+      <g id="Group_10521">
+        <g id="Group_10513">
+          <g id="Graphic_10516">
+            <circle cx="-13.982711" cy="-3251.248" r="8.00001854563687" fill="white"/>
+            <circle cx="-13.982711" cy="-3251.248" r="8.00001854563687" stroke="#65727e" stroke-linecap="round" stroke-linejoin="round" stroke-width=".75"/>
+          </g>
+          <g id="Group_10514">
+            <title>plus</title>
+            <g id="Graphic_10515">
+              <path d="M -13.649378 -3251.5814 L -9.982711 -3251.5814 C -9.796045 -3251.5814 -9.649378 -3251.4347 -9.649378 -3251.248 C -9.649378 -3251.0614 -9.796045 -3250.9147 -9.982711 -3250.9147 L -13.649378 -3250.9147 L -13.649378 -3247.248 C -13.649378 -3247.0614 -13.796045 -3246.9147 -13.982711 -3246.9147 C -14.169378 -3246.9147 -14.316045 -3247.0614 -14.316045 -3247.248 L -14.316045 -3250.9147 L -17.982711 -3250.9147 C -18.169378 -3250.9147 -18.316045 -3251.0614 -18.316045 -3251.248 C -18.316045 -3251.4347 -18.169378 -3251.5814 -17.982711 -3251.5814 L -14.316045 -3251.5814 L -14.316045 -3255.248 C -14.316045 -3255.4347 -14.169378 -3255.5814 -13.982711 -3255.5814 C -13.796045 -3255.5814 -13.649378 -3255.4347 -13.649378 -3255.248 Z" fill="#66727e"/>
+            </g>
+          </g>
+        </g>
+        <g id="Graphic_10519"/>
+      </g>
+    </g>
+  </g>
+</svg>
