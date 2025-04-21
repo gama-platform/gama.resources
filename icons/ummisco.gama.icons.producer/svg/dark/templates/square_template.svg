@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-952.0833 -3091.0833 16.166667 16.166667" width="16.166667" height="16.166667">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-884.0273 -2776.2024 17 17" width="17" height="17">
   <defs/>
-  <g id="SOURCES" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+  <g id="SOURCES" stroke-opacity="1" fill="none" stroke="none" fill-opacity="1" stroke-dasharray="none">
     <title>SOURCES</title>
-    <g id="SOURCES_Calque_2">
-      <title>Calque 2</title>
-      <g id="Graphic_7365">
+    <g id="SOURCES_Dark">
+      <title>Dark</title>
+      <g id="Graphic_11778">
         <title>views/view.other</title>
-        <path d="M -949.44 -3091 L -938.56 -3091 C -937.1462 -3091 -936 -3089.854 -936 -3088.44 L -936 -3077.56 C -936 -3076.146 -937.1462 -3075 -938.56 -3075 L -949.44 -3075 C -950.8538 -3075 -952 -3076.146 -952 -3077.56 L -952 -3088.44 C -952 -3089.854 -950.8538 -3091 -949.44 -3091 Z" fill="white"/>
-        <path d="M -949.44 -3091 L -938.56 -3091 C -937.1462 -3091 -936 -3089.854 -936 -3088.44 L -936 -3077.56 C -936 -3076.146 -937.1462 -3075 -938.56 -3075 L -949.44 -3075 C -950.8538 -3075 -952 -3076.146 -952 -3077.56 L -952 -3088.44 C -952 -3089.854 -950.8538 -3091 -949.44 -3091 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".16666667"/>
+        <path d="M -880.9673 -2775.7024 L -870.0873 -2775.7024 C -868.6734 -2775.7024 -867.5273 -2774.5563 -867.5273 -2773.1424 L -867.5273 -2762.2624 C -867.5273 -2760.8486 -868.6734 -2759.7024 -870.0873 -2759.7024 L -880.9673 -2759.7024 C -882.3811 -2759.7024 -883.5273 -2760.8486 -883.5273 -2762.2624 L -883.5273 -2773.1424 C -883.5273 -2774.5563 -882.3811 -2775.7024 -880.9673 -2775.7024 Z" fill="#666766"/>
+        <path d="M -880.9673 -2775.7024 L -870.0873 -2775.7024 C -868.6734 -2775.7024 -867.5273 -2774.5563 -867.5273 -2773.1424 L -867.5273 -2762.2624 C -867.5273 -2760.8486 -868.6734 -2759.7024 -870.0873 -2759.7024 L -880.9673 -2759.7024 C -882.3811 -2759.7024 -883.5273 -2760.8486 -883.5273 -2762.2624 L -883.5273 -2773.1424 C -883.5273 -2774.5563 -882.3811 -2775.7024 -880.9673 -2775.7024 Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
       </g>
     </g>
   </g>

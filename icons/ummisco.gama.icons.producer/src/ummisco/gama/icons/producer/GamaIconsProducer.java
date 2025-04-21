@@ -34,6 +34,7 @@ import static java.lang.System.currentTimeMillis;
 import static java.lang.System.out;
 import static org.apache.batik.util.XMLResourceDescriptor.getXMLParserClassName;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -294,12 +295,6 @@ public class GamaIconsProducer {
 	 */
 	private static class DarkDisabledFilter extends RGBImageFilter {
 
-		/** The min. */
-		private final float min;
-
-		/** The factor. */
-		private final float factor;
-
 		/**
 		 * Instantiates a new disabled filter.
 		 *
@@ -310,17 +305,23 @@ public class GamaIconsProducer {
 		 */
 		DarkDisabledFilter() {
 			canFilterIndexColorModel = true;
-			this.min = 160;
-			this.factor = (255 - min) / 255f;
 		}
 
 		@Override
 		public int filterRGB(final int x, final int y, final int rgb) {
-			// Coefficients are from the sRGB color space:
-			int gray = Math.min(255,
-					(int) ((0.2125f * (rgb >> 16 & 0xFF) + 0.7154f * (rgb >> 8 & 0xFF) + 0.0721f * (rgb & 0xFF) + .5f)
-							* factor + min));
-			return rgb & 0xff000000 | gray << 16 | gray << 8 | gray << 0;
+			// extract alpha mask
+			int alphamask = rgb & 0xFF000000;
+
+			// convert to HSB
+			float[] hsb = Color.RGBtoHSB(rgb >> 16 & 0xff, rgb >> 8 & 0xff, rgb & 0xff, null);
+			// desaturate (half saturation)
+			hsb[1] *= 0.5;
+			// dim (half brightness)
+			hsb[2] *= 0.5;
+			// convert back to RGB
+			int rgbval = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
+
+			return rgbval & 0x00FFFFFF | alphamask;
 		}
 	}
 
