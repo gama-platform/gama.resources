@@ -65,8 +65,6 @@ import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.w3c.dom.svg.SVGDocument;
 
 /**
@@ -85,9 +83,6 @@ public class GamaIconsProducer {
 	/** The Constant DVG_PATH. */
 	static public final String SVG_PATH = "/svg/";
 
-	/** The Constant PLUGIN_ID. */
-	public static final String PLUGIN_ID = "ummisco.gama.ui.shared";
-
 	/** The Constant DISABLED_SUFFIX. */
 	public static final String DISABLED_SUFFIX = "_disabled";
 
@@ -101,7 +96,10 @@ public class GamaIconsProducer {
 	static final PNGTranscoder PNG_TRANSCODER = new CustomTranscoder();
 
 	/** The Constant filter. */
-	static final DisabledFilter FILTER = new DisabledFilter();
+	static final LightDisabledFilter LIGHT_DISABLED_FILTER = new LightDisabledFilter();
+
+	/** The Constant DARK_DISABLED_FILTER. */
+	static final DarkDisabledFilter DARK_DISABLED_FILTER = new DarkDisabledFilter();
 
 	/** The Constant SCALES. Change it to create new sizes */
 	static final String[] SCALES = { "1", "2" };
@@ -113,11 +111,16 @@ public class GamaIconsProducer {
 	 *            the arguments
 	 */
 	public static void main(final String args[]) {
+
 		final String input = args.length <= 1 ? "svg" : args[0];
-		final String output = args.length == 0 ? "icons" : args.length == 1 ? args[0] : args[1];
+		// final String output = args.length == 0 ? "icons" : args.length == 1 ? args[0] : args[1];
 		long start = currentTimeMillis();
 		// generateBuiltInIcons(Paths.get(input));
-		int n = produceIcons(Paths.get(input), Paths.get(output));
+		out.println(Paths.get(input).toAbsolutePath());
+		Path p = Paths.get(input).toAbsolutePath();
+		p = p.getParent().getParent().getParent().getParent();
+		p = p.resolve("gama").resolve("gama.ui.shared").resolve("icons");
+		int n = produceIcons(Paths.get(input), p);
 		out.println("Produced " + n + " icons for GAMA in " + (currentTimeMillis() - start) / 1000f + " seconds");
 	}
 
@@ -180,7 +183,7 @@ public class GamaIconsProducer {
 			Files.walk(inputPath).filter(n -> n.toString().endsWith(".svg")).sorted().forEach(p -> {
 				String iconPathAndName = inputPath.relativize(p).toString().replace(".svg", "");
 				try {
-
+					boolean isDark = p.toString().contains("dark");
 					SVGDocument svg = SVG_FACTORY.createSVGDocument(p.toUri().toURL().toString());
 					Dimension dim = correctSizeOf(iconPathAndName, svg);
 					TranscoderInput input = new TranscoderInput(svg);
@@ -199,7 +202,8 @@ public class GamaIconsProducer {
 						counter[0]++;
 						if (!noDisabledDirs.contains(p.getParent())) {
 							BufferedImage image = ImageIO.read(outputFile);
-							ImageProducer prod = new FilteredImageSource(image.getSource(), FILTER);
+							ImageProducer prod = new FilteredImageSource(image.getSource(),
+									isDark ? DARK_DISABLED_FILTER : LIGHT_DISABLED_FILTER);
 							Image gray = Toolkit.getDefaultToolkit().createImage(prod);
 							ImageIO.write(toBufferedImage(gray), "png", outputDisabledFile);
 							counter[0]++;
@@ -253,7 +257,7 @@ public class GamaIconsProducer {
 	/**
 	 * The Class DisabledFilter.
 	 */
-	private static class DisabledFilter extends RGBImageFilter {
+	private static class LightDisabledFilter extends RGBImageFilter {
 
 		/** The min. */
 		private final float min;
@@ -269,7 +273,42 @@ public class GamaIconsProducer {
 		 * @param max
 		 *            the max
 		 */
-		DisabledFilter() {
+		LightDisabledFilter() {
+			canFilterIndexColorModel = true;
+			this.min = 160;
+			this.factor = (255 - min) / 255f;
+		}
+
+		@Override
+		public int filterRGB(final int x, final int y, final int rgb) {
+			// Coefficients are from the sRGB color space:
+			int gray = Math.min(255,
+					(int) ((0.2125f * (rgb >> 16 & 0xFF) + 0.7154f * (rgb >> 8 & 0xFF) + 0.0721f * (rgb & 0xFF) + .5f)
+							* factor + min));
+			return rgb & 0xff000000 | gray << 16 | gray << 8 | gray << 0;
+		}
+	}
+
+	/**
+	 * The Class DarkDisabledFilter.
+	 */
+	private static class DarkDisabledFilter extends RGBImageFilter {
+
+		/** The min. */
+		private final float min;
+
+		/** The factor. */
+		private final float factor;
+
+		/**
+		 * Instantiates a new disabled filter.
+		 *
+		 * @param min
+		 *            the min
+		 * @param max
+		 *            the max
+		 */
+		DarkDisabledFilter() {
 			canFilterIndexColorModel = true;
 			this.min = 160;
 			this.factor = (255 - min) / 255f;
@@ -294,14 +333,14 @@ public class GamaIconsProducer {
 	 */
 	private static Dimension correctSizeOf(final String name, final SVGDocument svg) {
 		Element node = svg.getDocumentElement();
-		NodeList list = svg.getElementsByTagName("g");
-		for (int i = 0; i < list.getLength(); i++) {
-			Node n = list.item(i);
-			Node id = n.getAttributes().getNamedItem("id");
-			if (id != null && "ICONES".equals(id.getTextContent())) {
-				out.println("==> WARNING: " + name + " can be optimized. ");
-			}
-		}
+		// NodeList list = svg.getElementsByTagName("g");
+		// for (int i = 0; i < list.getLength(); i++) {
+		// Node n = list.item(i);
+		// Node id = n.getAttributes().getNamedItem("id");
+		// if (id != null && "ICONES".equals(id.getTextContent())) {
+		// out.println("==> WARNING: " + name + " can be optimized. ");
+		// }
+		// }
 		String nativeWidthStr = node.getAttribute("width");
 		String nativeHeightStr = node.getAttribute("height");
 		String nativeViewBoxX = "0", nativeViewBoxY = "0";
@@ -319,17 +358,21 @@ public class GamaIconsProducer {
 		nativeHeightStr = stripOffPx(nativeHeightStr);
 		float floatWidth = Float.parseFloat(nativeWidthStr);
 		float floatHeight = Float.parseFloat(nativeHeightStr);
-		if (floatWidth != (int) floatWidth) {
-			out.println("==> WARNING: width of " + name + " is " + floatWidth + " (its height is " + floatHeight + ")");
-		} else if (floatHeight != (int) floatHeight) {
-			out.println("==> WARNING: height of " + name + " is " + floatHeight + " (its width is " + floatWidth + ")");
-		}
 		int nativeWidth = Math.round(floatWidth);
 		int nativeHeight = Math.round(floatHeight);
+		out.print("Processing " + name + " in " + nativeWidth + "x" + nativeHeight + " ");
+		if (floatWidth != (int) floatWidth) {
+			out.println("==> WARNING: width is " + floatWidth + " (its height is " + floatHeight + ")");
+		} else if (floatHeight != (int) floatHeight) {
+			out.println("==> WARNING: height is " + floatHeight + " (its width is " + floatWidth + ")");
+		} else {
+			out.println("");
+		}
+
 		node.setAttribute("width", String.valueOf(nativeWidth));
 		node.setAttribute("height", String.valueOf(nativeHeight));
 		node.setAttribute("viewBox", nativeViewBoxX + " " + nativeViewBoxY + " " + nativeWidth + " " + nativeHeight);
-		out.println("Processing " + name + " in " + nativeWidth + "x" + nativeHeight);
+
 		return new Dimension(nativeWidth, nativeHeight);
 	}
 

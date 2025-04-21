@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-634.872 -3555.2937 24.75 24.75" width="24.75" height="24.75">
+  <defs/>
+  <g id="SOURCES" stroke-opacity="1" fill="none" stroke="none" fill-opacity="1" stroke-dasharray="none">
+    <title>SOURCES</title>
+    <g id="SOURCES_Dark">
+      <title>Dark</title>
+      <g id="Graphic_12133"/>
+      <g id="Graphic_12132">
+        <path d="M -624.897 -3552.5187 L -632.097 -3552.5187 C -633.417 -3552.5187 -634.485 -3551.4387 -634.485 -3550.1187 L -634.497 -3535.7187 C -634.497 -3534.3987 -633.417 -3533.3187 -632.097 -3533.3187 L -612.897 -3533.3187 C -611.577 -3533.3187 -610.497 -3534.3987 -610.497 -3535.7187 L -610.497 -3547.7187 C -610.497 -3549.0387 -611.577 -3550.1187 -612.897 -3550.1187 L -622.497 -3550.1187 L -624.897 -3552.5187 Z" fill="#fff885"/>
+      </g>
+      <g id="Graphic_12131">
+        <path d="M -621.4187 -3539.9477 L -623.9191 -3542.448 L -624.77056 -3541.6027 L -621.4187 -3538.251 L -614.2234 -3545.446 L -615.0688 -3546.2916 Z" fill="black"/>
+        <path d="M -621.4187 -3539.9477 L -623.9191 -3542.448 L -624.77056 -3541.6027 L -621.4187 -3538.251 L -614.2234 -3545.446 L -615.0688 -3546.2916 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width=".70487775"/>
+      </g>
+    </g>
+  </g>
+</svg>
