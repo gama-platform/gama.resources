@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-851.1174 -2776.2024 17 17" width="17" height="17">
-  <defs/>
-  <g id="SOURCES" stroke-opacity="1" fill="none" stroke="none" fill-opacity="1" stroke-dasharray="none">
-    <title>SOURCES</title>
-    <g id="SOURCES_Dark">
-      <title>Dark</title>
-      <g id="Graphic_11777">
-        <circle cx="-842.6174" cy="-2767.7024" r="8.00001278321504" fill="#666766"/>
-        <circle cx="-842.6174" cy="-2767.7024" r="8.00001278321504" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
-      </g>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" width="17" height="17" version="1.1" viewBox="-851.117 -2776.202 17 17"><g id="SOURCES" fill="none" fill-opacity="1" stroke="none" stroke-dasharray="none" stroke-opacity="1"><title>SOURCES</title><g id="SOURCES_Dark"><title>Dark</title><g id="Graphic_11777"><circle cx="-842.617" cy="-2767.702" r="8" fill="#666766"/><circle cx="-842.617" cy="-2767.702" r="8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/></g></g></g></svg>
