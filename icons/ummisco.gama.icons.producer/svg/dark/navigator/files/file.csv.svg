@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-858.997 -3501.861 17 16.999997" width="17" height="16.999997">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-858.872 -3501.737 16.75 16.7508" width="16.75" height="16.7508">
   <defs/>
-  <g id="SOURCES" stroke-opacity="1" fill="none" stroke="none" fill-opacity="1" stroke-dasharray="none">
+  <g id="SOURCES" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1" stroke="none">
     <title>SOURCES</title>
     <g id="SOURCES_Dark">
       <title>Dark</title>
       <g id="Graphic_11639">
-        <rect x="-858.497" y="-3501.361" width="16" height="15.999997" stroke="gray" stroke-opacity="0" stroke-linecap="round" stroke-linejoin="round" stroke-width=".25"/>
+        <rect x="-858.497" y="-3501.361" width="16" height="15.999997" stroke="gray" stroke-opacity="0" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"/>
       </g>
       <g id="Graphic_11638">
         <path d="M -854.6574 -3500.794 L -849.6974 -3500.954 L -846.3374 -3501.114 L -843.1374 -3497.914 L -843.2974 -3486.234 L -854.6574 -3486.234 Z" fill="#666566"/>
