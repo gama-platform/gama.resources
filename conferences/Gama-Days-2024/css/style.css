@@ -134,7 +134,7 @@ li,
 ol {
      margin: 0px;
      padding: 0px;
-     list-style: none;
+     list-style: disc inside;
 }
 
 p {
@@ -378,7 +378,7 @@ button {
 }
 
 .text-img {
-     padding-top: 100px;
+     padding-top: 200px;
 }
 
 .text-img figure {
@@ -403,13 +403,19 @@ button {
      padding-bottom: 20px;
 }
 
-.titlepage ul.bullet-list {
-     list-style-type: disc !important; /* Ensures bullet points are shown */
-     padding-left: 20px !important; /* Adds some padding to indent the list */
-}
-.titlepage ul.bullet-list li {
-     display: list-item !important; /* Ensures the list items are displayed correctly */
-   }
+ul.bullet-list {
+     list-style-type: disc !important;
+     margin-left: 20px !important;
+     padding-left: 20px !important;
+ }
+ 
+ ul.bullet-list li {
+     margin-bottom: 10px !important;
+ }
+ 
+ .text-justify {
+     text-align: justify !important;
+ }
 
 .d_flex {
      display: flex;
@@ -448,7 +454,7 @@ button {
 }
 
 .business .business_box figure img {
-     width: 100%;
+     width: 90%;
 }
 
 .business .business_box p {

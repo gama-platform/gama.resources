@@ -1,6 +1,6 @@
 /*******************************************************************************************************
  *
- * GamaIconsProducer.java, in ummisco.gama.icons.producer, is part of the source code of the GAMA modeling and
+ * GamaPNGIconsProducer.java, in ummisco.gama.icons.producer, is part of the source code of the GAMA modeling and
  * simulation platform (v.2025-03).
  *
  * (c) 2007-2025 UMI 209 UMMISCO IRD/SU & Partners (IRIT, MIAT, ESPACE-DEV, CTU)
@@ -45,10 +45,8 @@ import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageProducer;
 import java.awt.image.RGBImageFilter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -70,13 +68,10 @@ import org.w3c.dom.svg.SVGDocument;
 
 /**
  * <p>
- * Mojo which renders SVG icons into PNG format.
- * </p>
+ * Class which renders SVG icons into PNG format. Used for GAMA until version 2025-06.
  *
- * @goal render-icons
- * @phase generate-resources
  */
-public class GamaIconsProducer {
+public class GamaPNGIconsProducer {
 
 	/** The Constant DEFAULT_PATH. */
 	static public final String DEFAULT_PATH = "/icons/";
@@ -103,7 +98,7 @@ public class GamaIconsProducer {
 	static final DarkDisabledFilter DARK_DISABLED_FILTER = new DarkDisabledFilter();
 
 	/** The Constant SCALES. Change it to create new sizes */
-	static final String[] SCALES = { "1", "2" };
+	static final String[] SCALES = { "1", "1.25", "1.5", "1.75", "2" };
 
 	/**
 	 * The main method.
@@ -147,27 +142,27 @@ public class GamaIconsProducer {
 		}
 	}
 
-	/** The generate built in icons. !! Not generated anymore */
-	public static void generateBuiltInIcons(final Path svgPath) {
-		Path newPath = svgPath.resolve("colors");
-		newPath.toFile().mkdirs();
-		CSSColors.NAME_TO_RGB.forEach((name, code) -> {
-			try {
-				try (PrintWriter pw = new PrintWriter(new FileOutputStream(
-						newPath.resolve("square.color." + code + ".svg").toFile().getAbsolutePath()))) {
-					pw.format(SVGTemplates.SQUARE, CSSColors.NAME_TO_FILL.get(name)).flush();
-				}
-				if (name.contains("simulation")) {
-					try (PrintWriter pw = new PrintWriter(new FileOutputStream(
-							newPath.resolve("circle.color." + code + ".svg").toFile().getAbsolutePath()))) {
-						pw.format(SVGTemplates.CIRCLE, CSSColors.NAME_TO_FILL.get(name)).flush();
-					}
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		});
-	}
+	// /** The generate built in icons. !! Not generated anymore */
+	// public static void generateBuiltInIcons(final Path svgPath) {
+	// Path newPath = svgPath.resolve("colors");
+	// newPath.toFile().mkdirs();
+	// CSSColors.NAME_TO_RGB.forEach((name, code) -> {
+	// try {
+	// try (PrintWriter pw = new PrintWriter(new FileOutputStream(
+	// newPath.resolve("square.color." + code + ".svg").toFile().getAbsolutePath()))) {
+	// pw.format(SVGTemplates.SQUARE, CSSColors.NAME_TO_FILL.get(name)).flush();
+	// }
+	// if (name.contains("simulation")) {
+	// try (PrintWriter pw = new PrintWriter(new FileOutputStream(
+	// newPath.resolve("circle.color." + code + ".svg").toFile().getAbsolutePath()))) {
+	// pw.format(SVGTemplates.CIRCLE, CSSColors.NAME_TO_FILL.get(name)).flush();
+	// }
+	// }
+	// } catch (FileNotFoundException e) {
+	// e.printStackTrace();
+	// }
+	// });
+	// }
 
 	/**
 	 * Builds the icons and returns the number of icons produced
